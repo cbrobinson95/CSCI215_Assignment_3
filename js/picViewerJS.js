@@ -4,7 +4,8 @@
 var pics = document.getElementsByTagName('img');
 
 /*
- * Iterate through the images and set event listeners
+ * Iterate through the images and set event listeners. Without jQuery
+ * we have to iterate through the list of elements manually
  */
 for(var i=0; i<pics.length; i++) {
     console.log("pic src:" + pics[i].src);
