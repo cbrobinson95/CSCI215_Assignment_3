@@ -16,13 +16,13 @@ for(var i=0; i<pics.length; i++) {
     pics[i].addEventListener('mouseover', function () {
         this.height = 100;
         this.width = 120;
-    });
+    }); // END mouseover listener
 
     // Adds a mouseout event listner to return image to original size
     pics[i].addEventListener('mouseout', function () {
         this.height = originalHeight;
         this.width = originalWidth;
-    });
+    }); // END mouseout listener
 
     /*
      * Adds a click event listner to set the clicked image to the hidden div.
@@ -36,8 +36,9 @@ for(var i=0; i<pics.length; i++) {
             "-390px;'> <a href='javascript:dowork2()'>Close</a></span> ";
 
         imageDiv.style.visibility = "visible";
-    });
-}
+    }); // END click listener
+
+} // END for loop
 
 function dowork2(theImage) {
     var imageDiv =document.getElementById('imageDiv');
