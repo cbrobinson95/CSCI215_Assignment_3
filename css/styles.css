@@ -1,6 +1,5 @@
 #imageDiv {
     position: relative;
-    top: -70px;
     height: 400px;
     width: 600px;
     visibility: hidden;
@@ -8,4 +7,12 @@
 
 .thumb {
     margin-top: 10px;
+}
+
+#output {
+    font-size: 1.5em;
+}
+
+.message {
+    margin: 5px 5px 5px 5px;
 }
