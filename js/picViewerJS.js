@@ -2,15 +2,14 @@
  * Grab the images
  */
 var pics = document.getElementsByTagName('img');
-
+var originalHeight = pics[0].height;
+var originalWidth = pics[0].width;
 /*
  * Iterate through the images and set event listeners. Without jQuery
  * we have to iterate through the list of elements manually
  */
 for(var i=0; i<pics.length; i++) {
     console.log("pic src:" + pics[i].src);
-    var originalHeight = pics[i].height;
-    var originalWidth = pics[i].width;
 
     // Adds a mouseover event listner to expand the height and width
     pics[i].addEventListener('mouseover', function () {
