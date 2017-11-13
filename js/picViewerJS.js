@@ -1,47 +1,39 @@
 /*
  * Grab the images
  */
-var pics = document.getElementsByTagName('img');
+var pics = $('img');
+
+var originalHeight = pics[0].height;
+var originalWidth = pics[0].width;
+
+// Adds a mouseover event listner to expand the height and width
+$('img').mouseover( function () {
+    $(this).height(100).width(120);
+}); // END mouseover listener
+
+// Adds a mouseout event listner to return image to original size
+pics.mouseout( function () {
+    $(this).height(originalHeight).width(originalWidth);
+}); // END mouseout listener
 
 /*
- * Iterate through the images and set event listeners. Without jQuery
- * we have to iterate through the list of elements manually
+ * Adds a click event listner to set the clicked image to the hidden div.
+ * Notice the use of the 'this' keyword
  */
-for(var i=0; i<pics.length; i++) {
-    console.log("pic src:" + pics[i].src);
-    var originalHeight = pics[i].height;
-    var originalWidth = pics[i].width;
+pics.click( function (event) {
+    var imageDiv = $('#imageDiv');
+    var source = this.src;
 
-    // Adds a mouseover event listner to expand the height and width
-    pics[i].addEventListener('mouseover', function () {
-        this.height = 100;
-        this.width = 120;
-    }); // END mouseover listener
+    var text = "";
+    text += "<img src=" + source + " height=400 width=600><br>";
+    text += "<span style:'position: relative; left: 260px; top: " +
+        "-390px;'> <a href='javascript:dowork2()'>Close</a></span> ";
 
-    // Adds a mouseout event listner to return image to original size
-    pics[i].addEventListener('mouseout', function () {
-        this.height = originalHeight;
-        this.width = originalWidth;
-    }); // END mouseout listener
+    imageDiv.html(text).css("visibility","visible");
+}); // END click listener
 
-    /*
-     * Adds a click event listner to set the clicked image to the hidden div.
-     * Notice the use of the 'this' keyword
-     */
-    pics[i].addEventListener('click', function () {
-        var imageDiv = document.getElementById('imageDiv');
-        imageDiv.innerHTML = "";
-        imageDiv.innerHTML += "<img src=" + this.src + " height=400 width=600><br>";
-        imageDiv.innerHTML += "<span style:'position: relative; left: 260px; top: " +
-            "-390px;'> <a href='javascript:dowork2()'>Close</a></span> ";
 
-        imageDiv.style.visibility = "visible";
-    }); // END click listener
-
-} // END for loop
-
-function dowork2(theImage) {
-    var imageDiv =document.getElementById('imageDiv');
-    imageDiv.innerHTML = "";
-    imageDiv.style.visibility = "hidden";
+function dowork2() {
+    var imageDiv =$('#imageDiv');
+    imageDiv.html("<div></div>").css("visibility", "hidden");
 }
