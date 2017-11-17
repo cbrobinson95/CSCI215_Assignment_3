@@ -1,0 +1,20 @@
+#picDiv {
+    position: relative;
+    height: 400px;
+    width: 600px;
+    visibility: hidden;
+}
+
+.thumbnail {
+    margin-top: 10px;
+}
+
+#output {
+    font-size: 1.5em;
+    height: 248px;
+    width: 221px;
+}
+
+.message {
+    margin: 5px 5px 5px 5px;
+}
